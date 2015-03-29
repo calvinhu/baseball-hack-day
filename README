@@ -1,0 +1,16 @@
+see demo at:
+http://calvinhu.github.io/baseball-hack-day/
+
+Built using yeoman (and the marionette generator)
+
+To build, you'll need:
+
+npm
+grunt
+bower
+
+Then after checking out the code, run:
+
+npm install
+bower install
+grunt
