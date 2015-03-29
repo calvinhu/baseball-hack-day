@@ -1,2 +1,60 @@
-<div class="panel-group" id="accordion" role="tablist">
+<div class="input-group pull-left" style="width: 250px; margin-right: 15px">
+	<select id="teamSelect" type="text" class="form-control">
+		<option value="" value="" disabled selected>Select a team</option>
+		<optgroup class="division" label="NL East">
+			<option value="ATL">Atlanta Braves</option>
+			<option value="MIA">Florida Marlins</option>
+			<option value="NYM">New York Mets</option>
+			<option value="PHI">Philadelphia Phillies</option>
+			<option value="WSH">Washington Nationals</option>
+		</optgroup>
+		<optgroup class="division" label="NL Central">
+			<option value="CHC">Chicago Cubs</option>
+			<option value="CIN">Cincinnati Reds</option>
+			<option value="MIL">Milwaukee Brewers</option>
+			<option value="PIT">Pittsburgh Pirates</option>
+			<option value="STL">St. Louis Cardinals</option>
+		</optgroup>
+		<optgroup class="division" label="NL West">
+			<option value="ARI">Arizona Diamondbacks</option>
+			<option value="COL">Colorado Rockies</option>
+			<option value="LAD">Los Angeles Dodgers</option>
+			<option value="SD">San Diego Padres</option>
+			<option value="SF">San Francisco Giants</option>
+		</optgroup>
+		<optgroup class="division" label="AL East">
+			<option value="BAL">Baltimore Orioles</option>
+			<option value="BOS">Boston Red Sox</option>
+			<option value="NYY">New York Yankees</option>
+			<option value="TB">Tampa Bay Devil Rays</option>
+			<option value="TOR">Toronto Blue Jays</option>
+		</optgroup>
+		
+		<optgroup class="division" label="AL Central">
+			<option value="CWS">Chicago White Sox</option>
+			<option value="CLE">Cleveland Indians</option>
+			<option value="DET">Detroit Tigers</option>
+			<option value="KC">Kansas City Royals</option>
+			<option value="MIN">Minnesota Twins</option>
+		</optgroup>
+		<optgroup class="division" label="AL West">
+			<option value="HOU">Houston Astros</option>
+			<option value="LAA">Los Angeles Angels</option>
+			<option value="OAK">Oakland Athletics</option>
+			<option value="SEA">Seattle Mariners</option>
+			<option value="TEX">Texas Rangers</option>
+		</optgroup>
+	</select>
 </div>
+<div class="input-group pull-left" style="margin-right:15px">
+	<select id="typeSelect" type="text" class="form-control">
+		<option value="birth" selected>Birthplace</option>
+		<option value="highschool">Highschool</option>
+		<option value="college">College</option>
+	</select>
+</div>
+<button id="submit" class="btn btn-success pull-right" style="width: 75px">GO</button>
+<div class="clearfix"></div>
+<div id="players"></div>
+<!-- <div class="panel-group" id="accordion" role="tablist">
+</div> -->

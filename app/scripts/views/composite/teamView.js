@@ -10,7 +10,11 @@ function( Backbone, Communicator, PlayerView, TeamViewTmpl  ) {
 	/* Return a ItemView class definition */
 	return Backbone.Marionette.CompositeView.extend({
 
-		initialize: function() {
+		initialize: function(options) {
+			this.model = options.model;
+			this.type = options.type;
+			this.itemViewOptions = { type: this.type};
+
 			this.collection = this.model.attributes.players;
 		},
 		
@@ -18,14 +22,35 @@ function( Backbone, Communicator, PlayerView, TeamViewTmpl  ) {
 
 		itemView: PlayerView,
 
-		className: 'panel panel-default',
+		// className: 'panel panel-default',
 
 		itemViewContainer: "ul",
 
-		getHomeCityList: function() {
+		templateHelpers: function() {
+			var self = this;
+			return {
+				getType: function(){
+					return self.type;
+				}
+			}
+		},
+
+		getHomeCityList: function(type) {
 			var self = this;
 			return this.collection.map(function(player) {
-				return [player.attributes.full_name, player.attributes.birthcity + ', ' + player.attributes.birthcountry];
+				var location;
+				switch (type) {
+					case 'birth':
+						location = player.getHomeAddress()
+						break;
+					case 'highschool':
+						location = player.getHighschoolAddress()
+						break;
+					case 'college':
+						location = player.getCollegeAddress();
+						break;
+				}
+				return [player.attributes.full_name, location];
 			});
 		},
 
@@ -39,7 +64,7 @@ function( Backbone, Communicator, PlayerView, TeamViewTmpl  ) {
 
 		/* on show callback */
 		onShow: function() {
-			Communicator.mediator.trigger('drawPoints', this.getHomeCityList())
+			Communicator.mediator.trigger('drawPoints', this.getHomeCityList(this.type))
 		}
 	});
 

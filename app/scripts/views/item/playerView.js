@@ -1,26 +1,49 @@
 define([
 	'backbone',
+	'models/player',
 	'text!tmpl/item/playerView.html'
 ],
-function( Backbone, PlayerViewTmpl  ) {
+function( Backbone, Player, PlayerViewTmpl  ) {
     'use strict';
 
 	/* Return a ItemView class definition */
 	return Backbone.Marionette.ItemView.extend({
 
-		initialize: function() {
+		initialize: function(options) {
+			this.type = options.type;
 		},
 		
     	template: _.template(PlayerViewTmpl),
-        
-        templateHelpers: function() {
+
+    	model: Player,
+
+    	templateHelpers: function() {
 			var self = this;
 			return {
 				getHomeCoordinates: function(){
-					return self.model.getCoordinates(this.getHomeAddress());
+					return self.model.getHomeCoordinates();
 				},
 				getHomeAddress: function(){
-					return self.model.attributes.birthcity + ', ' + self.model.attributes.birthcountry 
+					return self.model.getHomeAddress();
+				},
+				getHighschoolAddress: function(){
+					return self.model.getHighschoolAddress();
+				},
+				getCollegeAddress: function(){
+					return self.model.getCollegeAddress();
+				},
+				getDisplayAddress: function(){
+					switch (self.type) {
+						case 'birth':
+							return this.getHomeAddress()
+							break;
+						case 'highschool':
+							return this.getHighschoolAddress()
+							break;
+						case 'college':
+							return this.getCollegeAddress();
+							break;
+					}
 				}
 			}
 		},

@@ -14,7 +14,7 @@ function( Backbone, Team ) {
 		model: Team,
 
 		url: function() {
-			return '/giants_roster.json'
+			return '/data/mlb_roster.json'
 		},
 
 		setAttributes: function(input) {
