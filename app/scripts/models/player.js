@@ -28,7 +28,9 @@ function( Backbone ) {
 			if (this.attributes.birthcity == '') {
 				return '';
 			} else {
-				if (this.attributes.birthstate != '' ) {
+				if (this.attributes.birthcountry == 'Canada') {
+					return this.attributes.birthcity + ', ' + this.attributes.birthstate + ' ' + this.attributes.birthcountry;
+				} else if (this.attributes.birthstate != '') {
 					return this.attributes.birthcity + ', ' + this.attributes.birthstate;
 				} else {
 					return this.attributes.birthcity + ', ' + this.attributes.birthcountry;

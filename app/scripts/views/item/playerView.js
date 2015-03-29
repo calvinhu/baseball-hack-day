@@ -24,9 +24,6 @@ function( Backbone, Player, PlayerViewTmpl  ) {
     	templateHelpers: function() {
 			var self = this;
 			return {
-				getHomeCoordinates: function(){
-					return self.model.getHomeCoordinates();
-				},
 				getHomeAddress: function(){
 					return self.model.getHomeAddress();
 				},
