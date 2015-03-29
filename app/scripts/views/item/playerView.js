@@ -17,6 +17,10 @@ function( Backbone, Player, PlayerViewTmpl  ) {
 
     	model: Player,
 
+    	tagName: 'li',
+
+    	className: 'list-group-item',
+
     	templateHelpers: function() {
 			var self = this;
 			return {

@@ -25,7 +25,16 @@ function( Backbone ) {
 		},
 
 		getHomeAddress: function(){
-			return this.attributes.birthcity + ', ' + this.attributes.birthstate + ' ' + this.attributes.birthcountry;
+			if (this.attributes.birthcity == '') {
+				return '';
+			} else {
+				if (this.attributes.birthstate != '' ) {
+					return this.attributes.birthcity + ', ' + this.attributes.birthstate;
+				} else {
+					return this.attributes.birthcity + ', ' + this.attributes.birthcountry;
+				}
+			}
+			
 		},
 		getHighschoolAddress: function(){
 			return this.attributes.high_school;
