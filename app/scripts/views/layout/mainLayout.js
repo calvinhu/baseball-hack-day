@@ -24,6 +24,9 @@ function( Backbone, Teams, MapView, TeamsView, MainLayoutTmpl  ) {
 		
     	template: _.template(MainLayoutTmpl),
     	
+    	className: 'container-fluid',
+
+    	id: 'main',
 
     	/* Layout sub regions */
     	regions: {

@@ -14,7 +14,7 @@ function( Backbone, Communicator, Router, Controller, Header ) {
 	/* Add application regions here */
 	App.addRegions({
 		headerRegion: 'header',
-		contentRegion: '#content'
+		contentRegion: '#container'
 	});
 
 	/* Add initializers here */

@@ -21,7 +21,7 @@ function( Backbone, Communicator, gmaps, MapViewTmpl  ) {
 		
 		template: _.template(MapViewTmpl),
 		
-
+		id: 'map-container',
 		/* ui selector cache */
 		ui: {},
 
