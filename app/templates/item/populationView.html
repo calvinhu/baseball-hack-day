@@ -1,0 +1,22 @@
+<div class="pull-right" style="width: 350px">
+
+	<table id="population" class="table table-condensed table-striped">
+		<thead>
+			<th data-order="asc" data-column-id="location">Location</th>
+			<th data-header-align="right" data-align="right" data-type="numeric" data-column-id="count">Players</th>
+			<th data-header-align="right" data-align="right" data-type="numeric" data-column-id="normalizedCount">Normalized</th>
+		</thead>
+		<tbody>
+			<% _.each(getCount(), function(item) { %>
+				<tr>
+					<td><%= item.location %></td>
+					<td><%= item.count %></td>
+					<td><%= item.normalizedCount %></td>
+				</tr>
+			<% }); %>
+		</tbody>
+	</table> 
+
+</div>
+<div class="pull-left" id="chart1"></div>
+<div class="pull-left" id="chart2"></div>

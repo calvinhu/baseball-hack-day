@@ -10,6 +10,7 @@ function(Marionette){
 		/* Backbone routes hash */
 		appRoutes: {
 			"" : "home",
+			"population" : "population",
 			"*args" : "home",
 	   	},
 	});

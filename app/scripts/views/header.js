@@ -16,6 +16,8 @@ function( Backbone, Communicator, WelcomeTmpl  ) {
 
     	templateHelpers: {
     	},
+
+    	className: 'navbar navbar-default navbar-fixed-top',
         
     	/* ui selector cache */
     	ui: {
@@ -23,6 +25,12 @@ function( Backbone, Communicator, WelcomeTmpl  ) {
 
 		/* Ui events hash */
 		events: {
+			'click .clickable': 'makeActive'
+		},
+
+		makeActive: function(e) {
+			this.$('li').removeClass('active');
+			$(e.currentTarget).addClass('active');
 		},
 
 		onShow: function () {

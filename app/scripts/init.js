@@ -17,6 +17,9 @@ require.config({
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
+        },
+        bootgrid: {
+            deps: ['bootstrap']
         }
     },
 
@@ -34,6 +37,7 @@ require.config({
 
         /* alias the bootstrap js lib */
         bootstrap: 'vendor/bootstrap',
+        bootgrid: 'vendor/jquery.bootgrid.min',
 
         /* Alias text.js for template loading and shortcut the templates dir to tmpl */
         text: '../bower_components/requirejs-text/text',
@@ -47,7 +51,7 @@ require.config({
         json2: '../bower_components/require-handlebars-plugin/hbs/json2',
         hbs: '../bower_components/require-handlebars-plugin/hbs',
 
-        highmaps: '../bower_components/highmaps/highmaps',
+        highcharts: 'vendor/highcharts',
         moment: 'vendor/moment',
         spin: 'vendor/spin.min',
 

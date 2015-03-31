@@ -19,7 +19,7 @@ function( Backbone, Teams, MapView, TeamsView, MainLayoutTmpl  ) {
 				success: function(collection,response) {
 					self.textRegion.show(new TeamsView({collection: self.teams}));
 				}
-			})
+			});
 		},
 		
     	template: _.template(MainLayoutTmpl),

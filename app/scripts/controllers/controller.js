@@ -2,9 +2,11 @@ define([
 	'backbone',
 	'communicator',
 	'spin',
-	'views/layout/mainLayout'
+	'models/population',
+	'views/layout/mainLayout',
+	'views/item/populationView',
 ],
-function( Backbone, Communicator, Spinner, MainLayoutView) {
+function( Backbone, Communicator, Spinner, Population, MainLayoutView, PopulationView) {
     'use strict';
 
 	return Backbone.Marionette.Controller.extend({
@@ -15,6 +17,17 @@ function( Backbone, Communicator, Spinner, MainLayoutView) {
 
 		home: function(){
             this.app.contentRegion.show(new MainLayoutView());
+		},
+
+		population: function(){
+			var self = this;
+			var population = new Population();
+			population.fetch({
+				success: function(response) {
+            		self.app.contentRegion.show(new PopulationView({model:population}));
+					
+				}
+			});
 		},
 
 	});
