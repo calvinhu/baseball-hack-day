@@ -51,7 +51,7 @@ function( Backbone, Bootgrid, highcharts, PopulationViewTmpl  ) {
 					type: 'bar'
 				},
 				title: {
-					text: 'Number of Players',
+					text: 'Number of MLB players born in location',
 				},
 				xAxis: {
 					categories: sortedData.map(function(a) { return a.location }),
@@ -110,7 +110,7 @@ function( Backbone, Bootgrid, highcharts, PopulationViewTmpl  ) {
 				series: [
 					{
 						name: 'Players',
-						color: '#7cb5ec',
+						color: 'steelblue',
 						data: sortedData.map(function(a) { return a.count })
 					}
 				]
@@ -124,7 +124,7 @@ function( Backbone, Bootgrid, highcharts, PopulationViewTmpl  ) {
 					type: 'bar'
 				},
 				title: {
-					text: 'Players (Normalized to players/100K)',
+					text: 'Number of MLB Players per 100K people',
 				},
 				subtitle: {
 					text: ''
@@ -186,7 +186,7 @@ function( Backbone, Bootgrid, highcharts, PopulationViewTmpl  ) {
 				series: [ 
 					{
 						name: 'Players per 100K',
-						color: '#333',
+						color: 'limegreen',
 						data: sortedData.map(function(a) { return parseFloat(a.normalizedCount) })
 					}
 				]
@@ -201,19 +201,22 @@ function( Backbone, Bootgrid, highcharts, PopulationViewTmpl  ) {
 
 		/* on render callback */
 		onShow: function() {
-			$('#population').bootgrid({
+			this.$('#population').bootgrid({
 				rowCount: -1,
 				navigation: 2,
 				columnSelection: false,
 				caseSensitive: false
 			});
+			this.$('#population-footer').hide();
+			var total = this.model.attributes.result.map(function(a) { return a.count }).reduce(function(a,b) { return a + b });
+			this.$('#populationTotal').html('Total players: ' + total);
 			this.renderGraph(
-				$('#chart1'),
+				this.$('#chart1'),
 				this.model.attributes.result,
 				false
 			);
 			this.renderNormalizedGraph(
-				$('#chart2'),
+				this.$('#chart2'),
 				this.model.attributes.result,
 				false
 			);
